@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "name": "bhrahma",
+  "builds": [
+    {
+      "src": "backend/main.py",
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "50mb"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "backend/main.py"
+    }
+  ],
+  "env": {
+    "ANTHROPIC_API_KEY": "@anthropic_api_key",
+    "OPENAI_API_KEY": "@openai_api_key",
+    "MIXTRAL_API_KEY": "@mixtral_api_key",
+    "DEFAULT_LLM": "anthropic"
+  }
+}

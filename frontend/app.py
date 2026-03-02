@@ -7,9 +7,10 @@ import time
 from datetime import datetime
 from typing import List, Dict
 import uuid
+import os
 
 # API Configuration
-API_URL = "http://localhost:8000"
+API_URL = os.getenv("API_URL", "http://localhost:8000")
 
 # Page config
 st.set_page_config(

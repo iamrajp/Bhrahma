@@ -19,6 +19,10 @@ COPY backend/ ./backend/
 COPY skills/ ./skills/
 COPY .env.example .env
 
+# Copy startup script
+COPY start.sh /app/start.sh
+RUN chmod +x /app/start.sh
+
 # Create database directory (will be empty initially, created on first run)
 RUN mkdir -p database
 
@@ -28,5 +32,5 @@ EXPOSE 8000
 # Set default port (Railway will override this)
 ENV PORT=8000
 
-# Start FastAPI backend with shell to expand environment variables
-CMD ["sh", "-c", "uvicorn backend.main:app --host 0.0.0.0 --port $PORT"]
+# Start FastAPI backend using startup script
+CMD ["/app/start.sh"]

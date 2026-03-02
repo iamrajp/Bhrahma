@@ -112,7 +112,12 @@ async def root():
 @app.get("/health")
 async def health_check():
     """Health check endpoint"""
-    available_llms = LLMFactory.get_available_providers()
+    try:
+        available_llms = LLMFactory.get_available_providers()
+    except Exception as e:
+        logger.warning(f"LLM check failed in health endpoint: {str(e)}")
+        available_llms = []
+
     return {
         "status": "healthy",
         "database": "connected",

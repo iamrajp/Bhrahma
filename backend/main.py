@@ -33,7 +33,7 @@ from config import settings
 app = FastAPI(
     title="Bhrahma Agentic System",
     description="AI agent system with skill learning capabilities",
-    version="1.0.0"
+    version="1.0.1"
 )
 
 # Add CORS middleware

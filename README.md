@@ -2,16 +2,58 @@
 
 An advanced AI agent system capable of learning new skills from the internet, spawning multiple sub-agents for parallel task execution, and integrating with multiple LLM providers.
 
-## Features
+## 📚 Documentation
 
-- **Web-Based Chat Interface**: User-friendly Streamlit chat interface
-- **Multi-LLM Support**: Integrate with Anthropic Claude, OpenAI GPT-4, and Mixtral
-- **Skill Learning**: Bhrahma can learn new skills from the internet using the skill-creator skill
-- **Agent Skills Format**: Uses Anthropic's Agent Skills (SKILL.md) format from [agentskills.io](https://agentskills.io)
-- **Multi-Agent Execution**: Spawn multiple sub-agents for parallel task execution
-- **Message Queue**: Asynchronous message processing with queue management
-- **Skill Management**: Store, organize, and reuse learned skills
-- **Web Search & Scraping**: Learn from official documentation, tutorials, and guides
+- **[Technical Highlights](TECHNICAL_HIGHLIGHTS.md)** - Deep dive into architecture, design patterns, and innovations
+- **[Tech Stack Overview](TECH_STACK.md)** - Quick reference for technologies and data flows
+- **[Demo Script](DEMO_SCRIPT.md)** - Complete demo screenplay for presentations
+- **[Demo Recording Guide](DEMO_RECORDING_GUIDE.md)** - How to record a professional demo video
+- **[Railway Deployment](RAILWAY_DEPLOYMENT.md)** - Production deployment guide
+- **[Quick Deploy Guide](DEPLOY_NOW.md)** - 5-minute deployment to Railway
+
+## ✨ Key Features
+
+- 🧠 **Self-Learning Agent**: Autonomously learns new skills from web documentation
+- 🔀 **Multi-LLM Support**: Integrate with Anthropic Claude, OpenAI GPT-4, and Mixtral
+- ⚡ **Parallel Execution**: Spawn multiple sub-agents for complex tasks
+- 📚 **Agent Skills Format**: Uses Anthropic's SKILL.md specification
+- 💬 **Real-time Chat**: Interactive Streamlit web interface
+- 🔄 **Message Queue**: Asynchronous task processing
+- 🌐 **Web Intelligence**: Deep documentation crawling and extraction
+- 💾 **Persistent Storage**: Skills are saved and reusable across sessions
+
+## 🚀 Quick Start
+
+```bash
+# 1. Clone and setup
+git clone https://github.com/iamrajp/Bhrahma.git
+cd Bhrahma
+python -m venv venv && source venv/bin/activate
+pip install -r requirements.txt
+
+# 2. Configure (add your API keys)
+cp .env.example .env
+nano .env
+
+# 3. Run
+python backend/main.py &           # Backend on :8000
+streamlit run frontend/app.py      # Frontend on :8501
+```
+
+## 🎯 What Makes Bhrahma Special
+
+1. **Dynamic Skill Learning**: Ask "Learn pytest from https://docs.pytest.org" and Bhrahma will:
+   - Crawl the documentation
+   - Extract key information
+   - Generate a reusable skill
+   - Store it for future use
+
+2. **Intelligent Orchestration**: For complex queries like "Compare Python, JavaScript, and Go", Bhrahma will:
+   - Decompose into subtasks
+   - Spawn parallel agents
+   - Synthesize results
+
+3. **Production Ready**: Docker containers, Railway deployment, proper error handling, logging, and monitoring
 
 ## Architecture
 

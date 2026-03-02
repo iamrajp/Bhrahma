@@ -25,8 +25,8 @@ RUN mkdir -p database
 # Expose port
 EXPOSE 8000
 
-# Set environment variable for port
+# Set default port (Railway will override this)
 ENV PORT=8000
 
-# Start FastAPI backend
-CMD uvicorn backend.main:app --host 0.0.0.0 --port ${PORT}
+# Start FastAPI backend with shell to expand environment variables
+CMD ["sh", "-c", "uvicorn backend.main:app --host 0.0.0.0 --port $PORT"]

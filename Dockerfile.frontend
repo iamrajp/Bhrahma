@@ -20,8 +20,8 @@ COPY frontend/ ./frontend/
 # Expose Streamlit port
 EXPOSE 8501
 
-# Set environment variable for port
+# Set default port (Railway will override this)
 ENV PORT=8501
 
-# Start Streamlit
-CMD streamlit run frontend/app.py --server.port=${PORT} --server.address=0.0.0.0 --server.headless=true
+# Start Streamlit with shell to expand environment variables
+CMD ["sh", "-c", "streamlit run frontend/app.py --server.port=$PORT --server.address=0.0.0.0 --server.headless=true"]
